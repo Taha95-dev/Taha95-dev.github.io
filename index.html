@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loom - Developer Productivity Suite</title>
+    <style>
+        :root {
+            --bg: #161616;
+            --bg-light: #1E1E1E;
+            --fg: #E6DDD5;
+            --fg-dim: #A38D73;
+            --accent: #9AA0A6;
+            --border: #505257;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 40px;
+        }
+
+        .terminal-window {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot.red { background-color: #E88A8A; }
+        .dot.yellow { background-color: #E8D890; }
+        .dot.green { background-color: #A8D8A8; }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            color: var(--fg-dim);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--fg);
+            color: var(--bg);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .btn-buy {
+            background-color: var(--accent);
+            color: var(--bg);
+            font-size: 1.2rem;
+            padding: 15px 40px;
+        }
+        .btn-buy:hover {
+            background-color: #B0B5BA;
+        }
+
+        .products {
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            color: var(--fg-dim);
+            font-size: 0.95rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--fg);
+        }
+
+        .about {
+            margin-top: 60px;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+            text-align: center;
+            color: var(--fg-dim);
+            font-size: 0.9rem;
+        }
+
+        .command {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="command">$ loom --help</div>
+                <div>&gt; One CLI to rule your dev workflow</div>
+                <div>&gt; 22+ commands • $5 lifetime</div>
+            </div>
+            <h1>Loom</h1>
+            <p class="subtitle">Developer productivity suite built on a 4GB laptop.</p>
+        </header>
+
+        <section class="products">
+            <h2 style="margin-bottom: 20px; font-size: 1.2rem; color: var(--fg-dim);">// PRODUCTS</h2>
+
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>Loom v2</h3>
+                    <p>Git orchestration, custom C compiler (tapc), SQLite shortcut manager, and 22+ commands.</p>
+                </div>
+                <div style="text-align: right; display: flex; gap: 20px; align-items: center;">
+                    <span class="price">$5</span>
+                    <!-- REPLACE THIS HREF WITH YOUR POLAR CHECKOUT LINK -->
+                    <a href="https://buy.polar.sh/polar_cl_zvnuIMcqUEG0ghrgaFfFV9PivHvnI9esOA40D25wvUK" class="btn btn-buy">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Add more products here in the future -->
+            <div class="product-card" style="opacity: 0.5;">
+                <div class="product-info">
+                    <h3>Coming Soon</h3>
+                    <p>More tools for systems programmers.</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="price">TBA</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <p>Built with C, Go, and Neovim. No VC funding, no bloat, no telemetry.</p>
+            <p style="margin-top: 10px;">© 2026 Taha. All rights reserved.</p>
+        </section>
+    </div>
+
+</body>
+</html>
